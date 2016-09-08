@@ -1,0 +1,13 @@
+body {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    text-align: left;
+    height: 100%;
+    background-color: #EEEEEE;
+}
+
+canvas {
+    /*padding: 0;
+    margin: auto;
+    display: block;*/
+    border: 1px solid #AAAAAA;
+}

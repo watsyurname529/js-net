@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JS-NET</title>
+		<meta name="description" content="Neural Net Demo" />
+		<meta name="copyright" content="Copyright ABC 2016. All Rights Reserved." />
+		<meta name="author" content="ABC" />
+		<link rel="stylesheet" href="styles/main.css"/>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="scripts/vendor/jquery-3.1.0.min.js"><\/script>')</script>
+        <script src="scripts/sketch.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+		    <header>
+		        <h1>JS-NET</h1>
+		    </header>
+		    <article>
+		        <div id="output">
+		            <noscript>
+		                <dl>
+		                    <dt>What the fuck! You don't even have JavaScript enabled!</dt>
+		                    <dd>You need to enable it to see all the fucking cool shit on this website...</dd>
+		                </dl>
+		            </noscript>
+                    <div class="tools">
+                        <a href="#tools_sketch" data-tool="marker">Marker</a>
+                        <a href="#tools_sketch" data-tool="eraser">Eraser</a>
+                    </div>
+                    <canvas id="tools_sketch" width="280" height="280"></canvas>
+                    <script type="text/javascript">
+                    $(function() {
+                        $('#tools_sketch').sketch();
+                    });
+                    </script>
+		        </div>
+		    </article>
+		</div>
+			<footer>
+			</footer>
+	</body>
+	<script src=""></script>
+</html>
