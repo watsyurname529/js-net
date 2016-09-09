@@ -36,7 +36,7 @@ var __slice = Array.prototype.slice;
         toolLinks: true,
         defaultTool: 'marker',
         defaultColor: '#000000',
-        defaultSize: 10
+        defaultSize: 20
       }, opts);
       this.painting = false;
       this.color = this.options.defaultColor;

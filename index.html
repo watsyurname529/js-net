@@ -9,7 +9,7 @@
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="scripts/vendor/jquery-3.1.0.min.js"><\/script>')</script>
-        <script src="scripts/sketch.js"></script>
+        <script src="scripts/paint.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -24,21 +24,26 @@
 		                    <dd>You need to enable it to see all the fucking cool shit on this website...</dd>
 		                </dl>
 		            </noscript>
-                    <div class="tools">
-                        <a href="#tools_sketch" data-tool="marker">Marker</a>
-                        <a href="#tools_sketch" data-tool="eraser">Eraser</a>
-                    </div>
-                    <canvas id="tools_sketch" width="280" height="280"></canvas>
-                    <script type="text/javascript">
-                    $(function() {
-                        $('#tools_sketch').sketch();
-                    });
-                    </script>
+					<!--<div id="sketch">
+						<div class="tools">
+							<a href="#tools_sketch" data-tool="marker">Marker</a>
+							<a href="#tools_sketch" data-tool="eraser">Eraser</a>
+						</div>
+						<canvas id="tools_sketch" width="280" height="280"></canvas>
+						<script type="text/javascript">
+						$(function() {
+							$('#tools_sketch').sketch();
+						});
+						</script>
+					</div>-->
+					<canvas id="c" width="280" height="280"></canvas>
+					<div id="button">Click Test</div>
+					<canvas id="test" width="28" height="28"></canvas>
 		        </div>
 		    </article>
 		</div>
 			<footer>
 			</footer>
 	</body>
-	<script src=""></script>
+	<script src="image.js"></script>
 </html>

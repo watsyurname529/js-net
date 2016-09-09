@@ -5,6 +5,12 @@ body {
     background-color: #EEEEEE;
 }
 
+#sketch {
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
 canvas {
     /*padding: 0;
     margin: auto;
