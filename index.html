@@ -9,7 +9,8 @@
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="scripts/vendor/jquery-3.1.0.min.js"><\/script>')</script>
-        <script src="scripts/paint.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.5.0/math.min.js"></script>
+        <script src="scripts/sketch.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -17,14 +18,14 @@
 		        <h1>JS-NET</h1>
 		    </header>
 		    <article>
-		        <div id="output">
+		        <div id="network">
 		            <noscript>
 		                <dl>
 		                    <dt>What the fuck! You don't even have JavaScript enabled!</dt>
 		                    <dd>You need to enable it to see all the fucking cool shit on this website...</dd>
 		                </dl>
 		            </noscript>
-					<!--<div id="sketch">
+					<div id="sketch">
 						<div class="tools">
 							<a href="#tools_sketch" data-tool="marker">Marker</a>
 							<a href="#tools_sketch" data-tool="eraser">Eraser</a>
@@ -35,15 +36,16 @@
 							$('#tools_sketch').sketch();
 						});
 						</script>
-					</div>-->
-					<canvas id="c" width="280" height="280"></canvas>
+					</div>
+					<!--<canvas id="c" width="280" height="280"></canvas>-->
 					<div id="button">Click Test</div>
-					<canvas id="test" width="28" height="28"></canvas>
+					<canvas id="output" width="28" height="28"></canvas>
 		        </div>
 		    </article>
 		</div>
 			<footer>
 			</footer>
 	</body>
-	<script src="image.js"></script>
+	<script src="mnist.json"></script>
+	<script src="nndemo.js"></script>
 </html>
