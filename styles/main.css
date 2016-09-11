@@ -5,15 +5,30 @@ body {
     background-color: #EEEEEE;
 }
 
-#sketch {
-    padding: 0;
+#wrapper {
+    width: 40%;
+    min-width: 700px;
     margin: auto;
     display: block;
 }
 
 canvas {
-    /*padding: 0;
-    margin: auto;
-    display: block;*/
-    border: 1px solid #AAAAAA;
+    border: 1px solid #000000;
+}
+
+.tools { 
+    margin-bottom: 10px; 
+}
+      
+.tools a {
+    border: 1px solid black; 
+    height: 30px; 
+    line-height: 30px; 
+    padding: 0 10px; 
+    vertical-align: middle; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    color: black; 
+    font-weight: bold;
 }

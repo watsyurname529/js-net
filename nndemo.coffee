@@ -9,7 +9,7 @@ $ ->
     argmax = (list) ->
         val = list[0]
         pos = 0
-        for i in [0...10]
+        for i in [0...list.length]
             if(list[i] > val)
                 val = list[i]
                 pos = i
@@ -18,10 +18,6 @@ $ ->
     $("#button").on "click", ->
             input_canvas = document.getElementById("tools_sketch")
             input_ctx = input_canvas.getContext("2d")
-
-            # imageData = ctx.getImageData(0, 0, 280, 280)
-            # data = imageData.data
-            # console.log(data[0], data[1], data[2], data[3], data.length)
 
             output_canvas = document.getElementById("output")
             output_ctx = output_canvas.getContext("2d")
@@ -62,7 +58,8 @@ $ ->
                 z_matrix = math.multiply(w, z_matrix)
                 z_matrix = math.add(z_matrix, b)
                 z_matrix = math.map(z_matrix, func = (val) ->
-                    math.tanh(val)
+                    # math.tanh(val)
+                    1.0 / (1.0 + math.exp(-val))
                 )            
 
             nn_guess = math.resize(z_matrix, [10])

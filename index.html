@@ -15,7 +15,7 @@
 	<body>
 		<div id="wrapper">
 		    <header>
-		        <h1>JS-NET</h1>
+		        <h1>Neural Network Demo; Codename: JS-NET</h1>
 		    </header>
 		    <article>
 		        <div id="network">
@@ -25,27 +25,33 @@
 		                    <dd>You need to enable it to see all the fucking cool shit on this website...</dd>
 		                </dl>
 		            </noscript>
-					<div id="sketch">
-						<div class="tools">
-							<a href="#tools_sketch" data-tool="marker">Marker</a>
-							<a href="#tools_sketch" data-tool="eraser">Eraser</a>
-						</div>
-						<canvas id="tools_sketch" width="280" height="280"></canvas>
-						<script type="text/javascript">
-						$(function() {
-							$('#tools_sketch').sketch();
-						});
-						</script>
+					<p>
+						Draw a single numerical digit from 0 to 9 in the canvas below and click 'Activate Neural Net'
+						to have the page attempt to identify the drawn digit.
+					</p>
+					<p>
+						Use the Marker tool to draw and use the Eraser tool to erase the entire image. Note: you need
+						to click the eraser tool and then the canvas to erase.
+					</p>
+					<div class="tools">
+						<a href="#tools_sketch" data-tool="marker">Marker</a>
+						<a href="#tools_sketch" data-tool="eraser">Eraser</a>
 					</div>
-					<!--<canvas id="c" width="280" height="280"></canvas>-->
-					<div id="button">Click Test</div>
+					<canvas id="tools_sketch" width="280" height="280"></canvas>
+					<script type="text/javascript">
+					$(function() {
+						$('#tools_sketch').sketch();
+					});
+					</script>
+					<div id="button">Activate Neural Net.</div>
 					<canvas id="output" width="28" height="28"></canvas>
+					<div id="nn_guess"></div>
 		        </div>
 		    </article>
 		</div>
 			<footer>
 			</footer>
 	</body>
-	<script src="mnist.json"></script>
+	<script src="mnist_sigm.json"></script>
 	<script src="nndemo.js"></script>
 </html>

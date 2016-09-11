@@ -29,10 +29,10 @@
       return results;
     };
     argmax = function(list) {
-      var i, j, pos, val;
+      var i, j, pos, ref, val;
       val = list[0];
       pos = 0;
-      for (i = j = 0; j < 10; i = ++j) {
+      for (i = j = 0, ref = list.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
         if (list[i] > val) {
           val = list[i];
           pos = i;
@@ -74,7 +74,7 @@
         z_matrix = math.multiply(w, z_matrix);
         z_matrix = math.add(z_matrix, b);
         z_matrix = math.map(z_matrix, func = function(val) {
-          return math.tanh(val);
+          return 1.0 / (1.0 + math.exp(-val));
         });
       }
       nn_guess = math.resize(z_matrix, [10]);
