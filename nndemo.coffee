@@ -19,7 +19,7 @@ $ ->
             input_canvas = document.getElementById("tools_sketch")
             input_ctx = input_canvas.getContext("2d")
 
-            output_canvas = document.getElementById("output")
+            output_canvas = document.getElementById("preview")
             output_ctx = output_canvas.getContext("2d")
             output_ctx.rect(0, 0, output_canvas.width, output_canvas.height);
             output_ctx.fillStyle = '#FFFFFF';
@@ -62,9 +62,22 @@ $ ->
                     1.0 / (1.0 + math.exp(-val))
                 )            
 
-            nn_guess = math.resize(z_matrix, [10])
-
-            console.log(math.format(nn_guess, 14))
-            nn_guess = argmax(nn_guess._data)
-            console.log(math.format(nn_guess, 14))
+            nn_guess_array = math.resize(z_matrix, [10])
+            nn_guess = argmax(nn_guess_array._data)
+            
+            nn_second_guess_array = nn_guess_array.clone()
+            nn_second_guess_array._data[nn_guess] = 0
+            nn_second_guess = argmax(nn_second_guess_array._data)
+            
+            console.log(math.format(nn_guess_array, 14))
+            console.log(math.format(nn_guess, 14), "or", math.format(nn_second_guess, 14))
             # console.log(math.format(z_matrix, 14))
+
+            $("#output").html(
+                '<p class="guess">' + 'Is the number a ... ' + math.format(nn_guess, 1) +
+                '?' + '</p>' +
+                '<p class="guess">' + 'Maybe a ... ' + math.format(nn_second_guess, 1) +
+                '?' + '</p>' + 
+                '<p>' + 'My total output: ' + math.format(nn_guess_array, 7) +
+                '</p>'
+            )

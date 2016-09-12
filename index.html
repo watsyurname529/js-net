@@ -33,19 +33,25 @@
 						Use the Marker tool to draw and use the Eraser tool to erase the entire image. Note: you need
 						to click the eraser tool and then the canvas to erase.
 					</p>
-					<div class="tools">
-						<a href="#tools_sketch" data-tool="marker">Marker</a>
-						<a href="#tools_sketch" data-tool="eraser">Eraser</a>
+					<div class="input">
+						<div class="tools">
+							<a href="#tools_sketch" data-tool="marker">Marker</a>
+							<a href="#tools_sketch" data-tool="eraser">Eraser</a>
+						</div>
+						<canvas id="tools_sketch" width="280" height="280"></canvas>
+						<script type="text/javascript">
+							$(function() {
+								$('#tools_sketch').sketch();
+							});
+						</script>
 					</div>
-					<canvas id="tools_sketch" width="280" height="280"></canvas>
-					<script type="text/javascript">
-					$(function() {
-						$('#tools_sketch').sketch();
-					});
-					</script>
-					<div id="button">Activate Neural Net.</div>
-					<canvas id="output" width="28" height="28"></canvas>
-					<div id="nn_guess"></div>
+					<div class="activate">
+						<div id="button">Activate Neural Net.</div>
+						<canvas id="preview" width="28" height="28"></canvas>
+					</div>
+					<div class="output" id="output">
+						<p class="guess">Draw a number!</p>
+					</div>
 		        </div>
 		    </article>
 		</div>

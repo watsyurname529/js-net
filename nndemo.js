@@ -41,10 +41,10 @@
       return pos;
     };
     return $("#button").on("click", function() {
-      var avg_pixel, b, bias, data, func, i, input_canvas, input_ctx, j, k, l, len, nn_guess, nn_image, nn_input, output_canvas, output_ctx, output_image, ref, ref1, ref2, ref3, size, w, weights, z_matrix;
+      var avg_pixel, b, bias, data, func, i, input_canvas, input_ctx, j, k, l, len, nn_guess, nn_guess_array, nn_image, nn_input, nn_second_guess, nn_second_guess_array, output_canvas, output_ctx, output_image, ref, ref1, ref2, ref3, size, w, weights, z_matrix;
       input_canvas = document.getElementById("tools_sketch");
       input_ctx = input_canvas.getContext("2d");
-      output_canvas = document.getElementById("output");
+      output_canvas = document.getElementById("preview");
       output_ctx = output_canvas.getContext("2d");
       output_ctx.rect(0, 0, output_canvas.width, output_canvas.height);
       output_ctx.fillStyle = '#FFFFFF';
@@ -77,10 +77,14 @@
           return 1.0 / (1.0 + math.exp(-val));
         });
       }
-      nn_guess = math.resize(z_matrix, [10]);
-      console.log(math.format(nn_guess, 14));
-      nn_guess = argmax(nn_guess._data);
-      return console.log(math.format(nn_guess, 14));
+      nn_guess_array = math.resize(z_matrix, [10]);
+      nn_guess = argmax(nn_guess_array._data);
+      nn_second_guess_array = nn_guess_array.clone();
+      nn_second_guess_array._data[nn_guess] = 0;
+      nn_second_guess = argmax(nn_second_guess_array._data);
+      console.log(math.format(nn_guess_array, 14));
+      console.log(math.format(nn_guess, 14), "or", math.format(nn_second_guess, 14));
+      return $("#output").html('<p class="guess">' + 'Is the number a ... ' + math.format(nn_guess, 1) + '?' + '</p>' + '<p class="guess">' + 'Maybe a ... ' + math.format(nn_second_guess, 1) + '?' + '</p>' + '<p>' + 'My total output: ' + math.format(nn_guess_array, 7) + '</p>');
     });
   });
 
