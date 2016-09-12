@@ -6,11 +6,13 @@
 		<meta name="copyright" content="Copyright ABC 2016. All Rights Reserved." />
 		<meta name="author" content="ABC" />
 		<link rel="stylesheet" href="styles/main.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="scripts/vendor/jquery-3.1.0.min.js"><\/script>')</script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.5.0/math.min.js"></script>
-        <script src="scripts/sketch.js"></script>
+        <script src="scripts/sketch.min.js"></script>
+		<script src="scripts/stackblur.min.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -27,13 +29,14 @@
 		            </noscript>
 					<p>
 						Draw a single numerical digit from 0 to 9 in the canvas below and click 'Activate Neural Net'
-						to have the page attempt to identify the drawn digit.
+						to have the page attempt to identify the drawn digit. The output will be the top two scoring
+						numbers along with the raw score array.
 					</p>
 					<p>
 						Use the Marker tool to draw and use the Eraser tool to erase the entire image. Note: you need
 						to click the eraser tool and then the canvas to erase.
 					</p>
-					<div class="input">
+					<div id="input">
 						<div class="tools">
 							<a href="#tools_sketch" data-tool="marker">Marker</a>
 							<a href="#tools_sketch" data-tool="eraser">Eraser</a>
@@ -45,12 +48,28 @@
 							});
 						</script>
 					</div>
-					<div class="activate">
+					<div id="activate">
 						<div id="button">Activate Neural Net.</div>
 						<canvas id="preview" width="28" height="28"></canvas>
 					</div>
-					<div class="output" id="output">
+					<div id="output">
 						<p class="guess">Draw a number!</p>
+					</div>
+					<div id="about">
+						<p>
+							This neural net is based off one I built in Python (and currently rewriting in C++) which performs
+							the full test, train, and output cycle. The code for this page simply takes the weights and biases
+							from the full implementation and gives an output for a given input. The neural net in this page
+							does not learn from its successes or failures.
+						</p>
+						<p>
+							This page works first by taking the image drawn in the sketch canvas and resizing it to the appropriate
+							size for the neural net and applying a pure white background. Then a slight image blur is applied to
+							achieve an anti-aliasing effect in an effort to more closely match the look of the original training
+							data. Next, the data for each pixel is extracted and transformed to the correct range where a 0.0 is 
+							white and a 1.0 is black with shades of grey in between. The result is a 784 number array which is fed 
+							to the neural net.
+						</p>
 					</div>
 		        </div>
 		    </article>
@@ -58,6 +77,7 @@
 			<footer>
 			</footer>
 	</body>
-	<script src="mnist_sigm.json"></script>
+	<!--<script src="mnist_sigm.json"></script>-->
+	<script src="mnist_tanh.json"></script>
 	<script src="nndemo.js"></script>
 </html>

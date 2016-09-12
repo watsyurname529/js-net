@@ -5,10 +5,23 @@ body {
     background-color: #EEEEEE;
 }
 
+header {
+    font-family: "Montserrat", sans-serif;
+}
+
+article {
+    font-family: "Roboto", sans-serif;
+    text-align: justify;
+}
+
+canvas {
+    border: 1px solid #000000;
+}
+
 #wrapper {
     width: 40%;
     min-width: 700px;
-    margin: auto;
+    margin: 0 auto;
     display: block;
 }
 
@@ -17,15 +30,40 @@ body {
     line-height: 18px;
 }
 
-.guess {
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    line-height: 24px;
+#input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: auto;
+    position: relative;
 }
 
-canvas {
-    border: 1px solid #000000;
+#activate {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: auto;
+    position: relative;
+}
+
+/*#button {
+    text-align: center;
+    vertical-align: center;
+}*/
+
+.guess {
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 20px;
+}
+
+#output.animate {
+  	-webkit-transition: opacity 0.3s ease-in-out;
+  	-moz-transition: opacity 0.3s ease-in-out;
+  	-ms-transition: opacity 0.3s ease-in-out;
+  	-o-transition: opacity 0.3s ease-in-out;
+  	-transition: opacity 0.3s ease-in-out;
 }
 
 .tools { 
