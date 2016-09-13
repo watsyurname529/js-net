@@ -137,4 +137,5 @@ ul a{
 ul a:hover{
     text-decoration: underline;
     color: #8800FF;
+    cursor: pointer;
 }
