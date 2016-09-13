@@ -14,11 +14,11 @@
         <script src="scripts/sketch.min.js"></script>
 		<script src="scripts/stackblur.min.js"></script>
 	</head>
-	<body>
+	<body>		
+		<header>
+			<h1>Neural Network Demo; Codename: JS-NET</h1>
+		</header>
 		<div id="wrapper">
-		    <header>
-		        <h1>Neural Network Demo; Codename: JS-NET</h1>
-		    </header>
 		    <article>
 		        <div id="network">
 		            <noscript>
@@ -33,13 +33,16 @@
 						numbers along with the raw score array.
 					</p>
 					<p>
-						Use the Marker tool to draw and use the Eraser tool to erase the entire image. Note: you need
-						to click the eraser tool and then the canvas to erase.
+						Use the Marker tool to draw and use the Eraser tool to erase the entire image. Use the S/M/L
+						buttons to change the size of the brush. Note: you need to click the eraser tool and then the canvas to erase.
 					</p>
 					<div id="input">
 						<div class="tools">
 							<a href="#tools_sketch" data-tool="marker">Marker</a>
 							<a href="#tools_sketch" data-tool="eraser">Eraser</a>
+							<a href="#tools_sketch" data-size="20">S</a>
+							<a href="#tools_sketch" data-size="25">M</a>
+							<a href="#tools_sketch" data-size="30">L</a>
 						</div>
 						<canvas id="tools_sketch" width="280" height="280"></canvas>
 						<script type="text/javascript">
@@ -49,13 +52,14 @@
 						</script>
 					</div>
 					<div id="activate">
-						<div id="button">Activate Neural Net.</div>
+						<button id="button">Activate Neural Net</button>
 						<canvas id="preview" width="28" height="28"></canvas>
 					</div>
 					<div id="output">
 						<p class="guess">Draw a number!</p>
 					</div>
 					<div id="about">
+						<h2>The Net</h2>
 						<p>
 							This neural net is based off one I built in Python (and currently rewriting in C++) which performs
 							the full test, train, and output cycle. The code for this page simply takes the weights and biases
@@ -66,16 +70,23 @@
 							This page works first by taking the image drawn in the sketch canvas and resizing it to the appropriate
 							size for the neural net and applying a pure white background. Then a slight image blur is applied to
 							achieve an anti-aliasing effect in an effort to more closely match the look of the original training
-							data. Next, the data for each pixel is extracted and transformed to the correct range where a 0.0 is 
-							white and a 1.0 is black with shades of grey in between. The result is a 784 number array which is fed 
+							data. Next, the data for each pixel is extracted and transformed to the correct range where 0.0 is 
+							white and 1.0 is black with shades of grey in between. The result is a 784 number array which is fed 
 							to the neural net.
+						</p>
+						<h2>About</h2>
+						<p>
+							This page is built with the help of the following useful scripts and libraries:
+								<ul>
+									<li> <a href="http://mathjs.org/">mathjs</a>
+									<li> <a href="http://intridea.github.io/sketch.js/">Sketch.js</a> 
+									<li> <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html">stackblur.js</a> 
+								</ul>
 						</p>
 					</div>
 		        </div>
 		    </article>
 		</div>
-			<footer>
-			</footer>
 	</body>
 	<!--<script src="mnist_sigm.json"></script>-->
 	<script src="mnist_tanh.json"></script>
